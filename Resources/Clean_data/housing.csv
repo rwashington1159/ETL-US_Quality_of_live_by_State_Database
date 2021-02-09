@@ -1,4 +1,4 @@
-Date,State,MedianListingPricePerSqft_AllHomes,MedianRentalPricePerSqft_AllHomes,PctOfHomesDecreasingInValues_AllHomes,PctOfHomesIncreasingInValues_AllHomes
+date,state_name,MedianListingPricePerSqft_AllHomes,MedianRentalPricePerSqft_AllHomes,PctOfHomesDecreasingInValues_AllHomes,PctOfHomesIncreasingInValues_AllHomes
 2010-01-31,Georgia,94.3037974683544,0.715309153279786,67.15,25.88
 2010-01-31,Washington,169.014084507042,0.961538461538462,78.82,14.58
 2010-02-28,Arkansas,88.3105802047782,0.6061872909699,40.91,48.71
