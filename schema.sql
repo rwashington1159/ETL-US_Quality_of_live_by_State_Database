@@ -1,3 +1,4 @@
+
 -- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- Link to schema: https://app.quickdatabasediagrams.com/#/d/k71TIH
 
@@ -68,22 +69,26 @@ CREATE TABLE "public_schools" (
     "EndGrade" varchar   NOT NULL
 );
 
+
 CREATE TABLE "hospitals" (
+	"id" serial primary key,
     "state_id" integer   NOT NULL,
-    "name" varchar   NOT NULL,
+    "name" varchar  NOT NULL,
     "address" varchar   NOT NULL,
-    "city" varchar(30)   NOT NULL,
+    "city" varchar   NOT NULL,
     "zip" integer   NOT NULL,
     "website" varchar   NOT NULL,
-    "owner" varchar(30)   NOT NULL,
-    "raiting" float   NOT NULL
+    "owner" varchar  NOT NULL,
+    "rating" float   NOT NULL
 );
+
 
 CREATE TABLE "unemployment" (
     "state_id" integer   NOT NULL,
     "regionCode" int   NOT NULL,
-    "regionName" varchar   NOT NULL,
-    "year" float   NOT NULL
+    "year" float   NOT NULL,
+	"unemployment" float,
+	PRIMARY KEY ("regionCode", "year")
 );
 
 CREATE TABLE "min_wage" (
@@ -91,6 +96,13 @@ CREATE TABLE "min_wage" (
     "Year" integer   NOT NULL,
     "min_wage" float   NOT NULL
 );
+
+CREATE TABLE "regionCode" (
+	"code" int primary key,
+	"name" varchar);
+	
+ALTER TABLE "unemployment" ADD CONSTRAINT "fk_regionCode_code" FOREIGN KEY ("regionCode")
+REFERENCES "regionCode" ("code");
 
 ALTER TABLE "housing" ADD CONSTRAINT "fk_housing_state_id" FOREIGN KEY("state_id")
 REFERENCES "state" ("state_id");
@@ -112,3 +124,4 @@ REFERENCES "state" ("state_id");
 
 ALTER TABLE "min_wage" ADD CONSTRAINT "fk_min_wage_state_id" FOREIGN KEY("state_id")
 REFERENCES "state" ("state_id");
+
